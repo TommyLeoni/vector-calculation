@@ -1,0 +1,47 @@
+.playground-container {
+    margin: 5%;
+    height: 500px;
+}
+
+.playground {
+    margin-left: 3%;
+    margin-top: 1%;
+    height: 95%;
+    width: auto;
+    box-shadow: -5px 0 5px -5px #bbc;
+    box-shadow: 0 5px 5px -5px #bbc;
+    border-left: 3px solid gray;
+    border-bottom: 3px solid gray;
+    border-radius: 3px; 
+}
+
+.controls {
+    margin-left: 5%;
+    margin-top: 5%;
+    height: 500px;
+}
+
+.instructions {
+    margin-top: 3%;
+    height: 150px;
+}
+
+.welcoming-title {
+    margin-top: 50px;
+    font-size: 2em;
+}
+
+.welcoming-text {
+    margin-left: 140px;
+    margin-right: 140px;
+}
+
+#container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
