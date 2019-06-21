@@ -2,6 +2,7 @@ const playground = $(".playground");
 const circle = $(".circle");
 var width = playground.width();
 var height = playground.height();
+var arrowList = [];
 
 var stage = new Konva.Stage({
   container: ".playground",
@@ -13,6 +14,13 @@ var layer = new Konva.Layer();
 
 $(window).resize(function() {
   positionCircle();
+  width = playground.width();
+  height = playground.height();
+  stage = new Konva.Stage({
+    container: ".playground",
+    width: width,
+    height: height
+  });
 });
 
 $(document).ready(function() {
@@ -31,30 +39,47 @@ playground.click(function(e) {
 function addArrow(endX, endY) {
   var arrow = new Konva.Arrow({
     points: [
-      circle.position().left - circle.width() / 4,
-      circle.position().top - circle.height() / 4,
+      circle.position().left - circle.width(),
+      circle.position().top - circle.height(),
       endX - 15,
       endY - 15
     ],
     pointerLength: 20,
     pointerWidth: 20,
-    fill: "black",
-    stroke: "black",
+    fill: '#343a40',
+    stroke: '#343a40',
     strokeWidth: 4
   });
 
-  // add the shape to the layer
+  arrowList.push(arrow);
   layer.add(arrow);
-
-  // add the layer to the stage
   stage.add(layer);
 }
 
-function getArrowDirection(x, y) {
-  if (x > playground.width / 2) {
-    if (y > playground.height / 2) {
-      return "arrow-";
-    }
+$(".btn-calc").click(function() {
+  calcVector();
+});
+
+function calcVector() {
+  var finalArrow = new Konva.Arrow({
+    points: [
+      circle.position().left - circle.width(),
+      circle.position().top - circle.height(),
+      0,
+      0
+    ],
+    pointerLength: 20,
+    pointerWidth: 20,
+    fill: '#343a40',
+    stroke: '#343a40',
+    strokeWidth: 4
+  });
+  layer.add(finalArrow);
+  for (var i = 1; i < arrowList.length; i++) {
+    finalArrow.attrs.points[0] = arrowList[i].attrs.points[2];
+    finalArrow.attrs.points[1] = arrowList[i].attrs.points[3];
+    finalArrow.attrs.points[2] = arrowList[i].attrs.points[2];
+    finalArrow.attrs.points[3] = arrowList[i].attrs.points[2];
   }
 }
 
@@ -63,4 +88,8 @@ function positionCircle() {
     top: circle.parent().height() / 2 - circle.height() / 2,
     left: circle.parent().width() / 2 - circle.width() / 2
   });
+}
+function point(x, y) {
+  this.x = x;
+  this.y = y;
 }

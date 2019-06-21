@@ -1,5 +1,6 @@
 .playground-container {
     margin: 5%;
+    padding: 0;
     height: 500px;
     position: relative;
 }
@@ -36,50 +37,26 @@
 .circle {
     border-radius: 50%;
     behavior: url(PIE.htc);
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 10px;
     background: #232323;
     position: absolute;
+    top: calc(50% - 12.5px);
+    left: calc(50% - 12.5px);
 }
 
 .circle:hover {
     cursor: pointer;
 }
 
-.arrow {
-    border-left: 3px solid #232323;
-    border-top: 3px solid #232323;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-}
-
-.arrow-top-right {
-    transform: rotate(90deg);
-}
-
-.arrow-left {
-    transform: rotate(315deg);
-}
-
-.arrow-right {
-    transform: rotate(135deg);
-}
-
-.arrow-bottom-left {
-    transform: rotate(270deg);
-}
-
-.arrow-bottom-right {
-    transform: rotate(180deg);
-}
-
-.arrow-top {
-    transform: rotate(45deg);
-}
-
-.arrow-bottom {
-    transform: rotate(225deg);
+.btn-calc {
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    top: 80%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 * {
