@@ -1,5 +1,6 @@
 const playground = $(".playground");
 const circle = $(".circle");
+const cb = $("input:checkbox");
 var width = playground.width();
 var height = playground.height();
 var arrowList = [];
@@ -56,11 +57,12 @@ function addArrow(endX, endY) {
   stage.add(layer);
 }
 
-$(".btn-calc").click(function () {
+$("form").submit(function (event) {
+  event.preventDefault();
   calcVector();
 });
 
-function calcVector() {
+function calcVector(drawCalc) {
   var lastArrow = new Konva.Arrow({
     points: [
       circle.position().left - circle.width(),
@@ -93,15 +95,22 @@ function calcVector() {
       (arrowList[i].attrs.points[1] - arrowList[i].attrs.points[3]);
     lastArrow.attrs.points = currentArrow.attrs.points;
   }
-  
+
   lastArrow.attrs.points[0] = circle.position().left - circle.width();
   lastArrow.attrs.points[1] = circle.position().top - circle.height();
 
   if (lastArrow.attrs.points[2] < 20) {
     lastArrow.attrs.points[2] = 20;
+  } 
+  
+  if (lastArrow.attrs.points[2] > playground.width()) {
+    lastArrow.attrs.points[2] = playground.width() - 20;
   }
+
   if (lastArrow.attrs.points[3] < 20) {
     lastArrow.attrs.points[3] = 20;
+  } else if (lastArrow.attrs.points[3] > playground.height()) {
+    lastArrow.attrs.points[3] = playground.height() - 20;
   }
 
   layer.add(lastArrow);
