@@ -1,5 +1,15 @@
-const playground = $(".playground-container");
+const playground = $(".playground");
 const circle = $(".circle");
+var width = playground.width();
+var height = playground.height();
+
+var stage = new Konva.Stage({
+  container: ".playground",
+  width: width,
+  height: height
+});
+
+var layer = new Konva.Layer();
 
 $(window).resize(function() {
   positionCircle();
@@ -10,27 +20,22 @@ $(document).ready(function() {
 });
 
 playground.click(function(e) {
-  var direction = getArrowDirection(e.pageX, e.pageY);
-  addArrow(e.pageX, e.pageY);
-  playground.append("<div class='arrow'/>");
+  var parentOffset = $(this)
+    .parent()
+    .offset();
+  var x = e.pageX - parentOffset.left;
+  var y = e.pageY - parentOffset.top;
+  addArrow(x, y);
 });
 
 function addArrow(endX, endY) {
-  var width = playground.width();
-  var height = playground.height();
-
-  var stage = new Konva.Stage({
-    container: ".playground",
-    width: width,
-    height: height
-  });
-
-  var layer = new Konva.Layer();
-
   var arrow = new Konva.Arrow({
-    x: 50,
-    y: 50,
-    points: [0, 0, 100, 200],
+    points: [
+      circle.position().left - circle.width() / 4,
+      circle.position().top - circle.height() / 4,
+      endX - 15,
+      endY - 15
+    ],
     pointerLength: 20,
     pointerWidth: 20,
     fill: "black",
