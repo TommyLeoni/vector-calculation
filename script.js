@@ -74,13 +74,14 @@ function calcVector() {
     stroke: '#343a40',
     strokeWidth: 4
   });
-  layer.add(finalArrow);
   for (var i = 1; i < arrowList.length; i++) {
     finalArrow.attrs.points[0] = arrowList[i].attrs.points[2];
     finalArrow.attrs.points[1] = arrowList[i].attrs.points[3];
-    finalArrow.attrs.points[2] = arrowList[i].attrs.points[2];
-    finalArrow.attrs.points[3] = arrowList[i].attrs.points[2];
+    finalArrow.attrs.points[2] = arrowList[i-1].attrs.points[2];
+    finalArrow.attrs.points[3] = arrowList[i-1].attrs.points[3];
   }
+  layer.add(finalArrow);
+  stage.add(layer);
 }
 
 function positionCircle() {
