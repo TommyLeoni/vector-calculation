@@ -46,8 +46,8 @@ function addArrow(endX, endY) {
     ],
     pointerLength: 20,
     pointerWidth: 20,
-    fill: '#343a40',
-    stroke: '#343a40',
+    fill: "#343a40",
+    stroke: "#343a40",
     strokeWidth: 4
   });
 
@@ -61,28 +61,50 @@ $(".btn-calc").click(function () {
 });
 
 function calcVector() {
-  var finalArrow = new Konva.Arrow({
+  var lastArrow = new Konva.Arrow({
     points: [
       circle.position().left - circle.width(),
       circle.position().top - circle.height(),
-      0,
-      0
+      arrowList[0].attrs.points[2],
+      arrowList[0].attrs.points[3]
     ],
     pointerLength: 20,
     pointerWidth: 20,
-    fill: '#343a40',
-    stroke: '#343a40',
+    fill: "red",
+    stroke: "red",
     strokeWidth: 4
   });
+
   for (var i = 1; i < arrowList.length; i++) {
-    finalArrow.attrs.points[0] = arrowList[i].attrs.points[2];
-    finalArrow.attrs.points[1] = arrowList[i].attrs.points[3];
-    finalArrow.attrs.points[2] = arrowList[i-1].attrs.points[2] + (arrowList[i].attrs.points[2] - (circle.position().left - circle.width()));
-    finalArrow.attrs.points[3] = arrowList[i-1].attrs.points[3] + (arrowList[i].attrs.points[3] - (circle.position().top - circle.height()));
+    var currentArrow = new Konva.Arrow({
+      points: [lastArrow.attrs.points[2], lastArrow.attrs.points[3], 0, 0],
+      pointerLength: 20,
+      pointerWidth: 20,
+      fill: "#343a40",
+      stroke: "#343a40",
+      strokeWidth: 4
+    });
+
+    currentArrow.attrs.points[2] =
+      lastArrow.attrs.points[2] -
+      (arrowList[i].attrs.points[0] - arrowList[i].attrs.points[2]);
+    currentArrow.attrs.points[3] =
+      lastArrow.attrs.points[3] -
+      (arrowList[i].attrs.points[1] - arrowList[i].attrs.points[3]);
+    lastArrow.attrs.points = currentArrow.attrs.points;
   }
-  finalArrow.attrs.points[0] = circle.position().left - circle.width();
-  finalArrow.attrs.points[1] = circle.position().top - circle.height();
-  layer.add(finalArrow);
+  
+  lastArrow.attrs.points[0] = circle.position().left - circle.width();
+  lastArrow.attrs.points[1] = circle.position().top - circle.height();
+
+  if (lastArrow.attrs.points[2] < 20) {
+    lastArrow.attrs.points[2] = 20;
+  }
+  if (lastArrow.attrs.points[3] < 20) {
+    lastArrow.attrs.points[3] = 20;
+  }
+
+  layer.add(lastArrow);
   stage.add(layer);
 }
 
@@ -91,9 +113,4 @@ function positionCircle() {
     top: circle.parent().height() / 2 - circle.height() / 2,
     left: circle.parent().width() / 2 - circle.width() / 2
   });
-}
-
-function point(x, y) {
-  this.x = x;
-  this.y = y;
 }
