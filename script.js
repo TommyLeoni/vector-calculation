@@ -12,7 +12,7 @@ var stage = new Konva.Stage({
 
 var layer = new Konva.Layer();
 
-$(window).resize(function() {
+$(window).resize(function () {
   positionCircle();
   width = playground.width();
   height = playground.height();
@@ -23,11 +23,11 @@ $(window).resize(function() {
   });
 });
 
-$(document).ready(function() {
+$(document).ready(function () {
   positionCircle();
 });
 
-playground.click(function(e) {
+playground.click(function (e) {
   var parentOffset = $(this)
     .parent()
     .offset();
@@ -56,7 +56,7 @@ function addArrow(endX, endY) {
   stage.add(layer);
 }
 
-$(".btn-calc").click(function() {
+$(".btn-calc").click(function () {
   calcVector();
 });
 
@@ -77,9 +77,11 @@ function calcVector() {
   for (var i = 1; i < arrowList.length; i++) {
     finalArrow.attrs.points[0] = arrowList[i].attrs.points[2];
     finalArrow.attrs.points[1] = arrowList[i].attrs.points[3];
-    finalArrow.attrs.points[2] = arrowList[i-1].attrs.points[2];
-    finalArrow.attrs.points[3] = arrowList[i-1].attrs.points[3];
+    finalArrow.attrs.points[2] = arrowList[i-1].attrs.points[2] + (arrowList[i].attrs.points[2] - (circle.position().left - circle.width()));
+    finalArrow.attrs.points[3] = arrowList[i-1].attrs.points[3] + (arrowList[i].attrs.points[3] - (circle.position().top - circle.height()));
   }
+  finalArrow.attrs.points[0] = circle.position().left - circle.width();
+  finalArrow.attrs.points[1] = circle.position().top - circle.height();
   layer.add(finalArrow);
   stage.add(layer);
 }
@@ -90,6 +92,7 @@ function positionCircle() {
     left: circle.parent().width() / 2 - circle.width() / 2
   });
 }
+
 function point(x, y) {
   this.x = x;
   this.y = y;
