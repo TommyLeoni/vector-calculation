@@ -1,5 +1,4 @@
 .playground-container {
-    margin: 5%;
     padding: 0;
     height: 500px;
     position: relative;
@@ -14,24 +13,12 @@
 }
 
 .controls {
-    margin-left: 5%;
-    margin-top: 5%;
     height: 500px;
-}
-
-.instructions {
-    margin-top: 3%;
-    height: 150px;
 }
 
 .welcoming-title {
     margin-top: 50px;
     font-size: 2em;
-}
-
-.welcoming-text {
-    margin-left: 140px;
-    margin-right: 140px;
 }
 
 .curr-strength-disp {
