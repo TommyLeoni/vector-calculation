@@ -39,7 +39,7 @@
     behavior: url(PIE.htc);
     width: 10px;
     height: 10px;
-    background: #232323;
+    /* background: #232323; */
     position: absolute;
     top: calc(50% - 12.5px);
     left: calc(50% - 12.5px);
