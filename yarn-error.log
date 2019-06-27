@@ -1,0 +1,57 @@
+Arguments: 
+  /Users/Tommy/.nvm/versions/node/v11.4.0/bin/node /usr/local/Cellar/yarn/1.17.0/libexec/bin/yarn.js serve
+
+PATH: 
+  /Users/Tommy/.nvm/versions/node/v11.4.0/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Applications/VMware Fusion.app/Contents/Public:/Users/Tommy/dev/SDKs/flutter/bin:/Users/Tommy/dev/SDKs/flutter/bin
+
+Yarn version: 
+  1.17.0
+
+Node version: 
+  11.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/Tommy/Documents/coding/vector-calculation/package.json: Unexpected token } in JSON at position 367
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.17.0/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.17.0/libexec/lib/cli.js:304:30)
+      at /usr/local/Cellar/yarn/1.17.0/libexec/lib/cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "vector-calculation",
+    "version": "1.0.0",
+    "description": "A vector calculating tool",
+    "main": "index.html",
+    "dependencies": {
+      "jquery": "^3.4.1",
+      "konva": "^3.3.3"
+    },
+    "devDependencies": {
+      "babel-preset-env": "^1.7.0",
+      "babel-register": "^6.26.0"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/TommyLeoni/vector-calculation.git"
+    },
+    "author": "Tomaso Leoni, Jerico Luis Lua",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/TommyLeoni/vector-calculation/issues"
+    },
+    "homepage": "https://github.com/TommyLeoni/vector-calculation#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

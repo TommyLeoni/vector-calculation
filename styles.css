@@ -34,6 +34,10 @@
     margin-right: 140px;
 }
 
+.curr-strength-disp {
+    font-size: 6em;
+}
+
 .circle {
     border-radius: 50%;
     behavior: url(PIE.htc);
@@ -47,16 +51,6 @@
 
 .circle:hover {
     cursor: pointer;
-}
-
-.btn-calc {
-    margin-top: auto;
-    margin-bottom: auto;
-    position: relative;
-    top: 80%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
 }
 
 * {

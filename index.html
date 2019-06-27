@@ -10,12 +10,10 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    />
+      />
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
-      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-      crossorigin="anonymous"
-    ></script>
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
   </head>
 
   <body class="bg-light">
@@ -33,44 +31,41 @@
       </div>
       <div class="row">
         <div
-          class="col-sm-3 col-lg-3 col-xl-3 controls shadow p-3 mb-5 rounded text-center"
-        >
-          <div class="row justify-content-md-center align-middle btn-calc">
-            <form>
+          class="col-sm-3 col-lg-3 col-xl-3 controls shadow p-3 mb-5 rounded text-center">
+          <div class="row h-100 d-flex justify-content-md-center align-middle mt-3">
+            <h3 class="col-sm-9">Current overall strength applied:</h3>
+            <div class="w-100"></div>
+            <p class="col curr-strength-disp" id="strengthDisplay">0</p>
+            <div class="w-100"></div>
+            <form class="col">
               <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="showAllVectors"
-                />
-                <label class="form-check-label" for="exampleCheck1"
-                  >Show all vectors</label
-                >
+                <input type="checkbox" class="form-check-input" id="showAllVectors"/>
+                <label class="form-check-label" for="exampleCheck1">
+                  Show all vectors
+                </label>
               </div>
               <br />
-              <button type="submit" class="btn btn-dark btn-light">Submit</button>
+              <button type="submit" class="btn btn-dark btn-light">
+                Submit
+              </button>
             </form>
           </div>
         </div>
-        <div
-          class="col-sm-7 col-lg-7 col-xl-7 playground-container shadow p-3 mb-5 rounded"
-        >
+        <div class="col-sm-7 col-lg-7 col-xl-7 playground-container shadow p-3 mb-5 rounded">
           <div class="playground"></div>
           <div class="circle" id="center-circle"></div>
         </div>
       </div>
     </div>
-    <!-- <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script> -->
+    <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="js/app.js" charset="utf-8"></script>
   </body>
 </html>

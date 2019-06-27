@@ -5,16 +5,15 @@
   "main": "index.html",
   "dependencies": {
     "jquery": "^3.4.1",
-    "konva": "^3.3.3"
+    "konva": "^3.3.3",
+    "konva-node": "^0.11.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/register": "^7.4.4"
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "python -m SimpleHTTPServer 8000"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

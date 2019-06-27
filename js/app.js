@@ -1,10 +1,10 @@
-import Konva from "konva";
-
+const strengthDisplay = $("#strengthDisplay");
 const playground = $(".playground");
 const circle = $("#center-circle");
 const cb = $("input:checkbox");
-var width = playground.width();
+
 var height = playground.height();
+var width = playground.width();
 var drawAllVectors = false;
 var arrowList = [];
 var drawn = false;
