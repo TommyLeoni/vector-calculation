@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vector Calculation</title>
+    <title>Vectorize</title>
     <meta charset="utf-8" />
     <link href="styles.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,36 +14,42 @@
     <script
       src="https://code.jquery.com/jquery-3.4.1.js"
       integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
   </head>
 
   <body class="bg-light">
-    <div id="container" class="justify-content-md-center container-fluid text-dark">
+    <div id="container" class="justify-content-md-center container-fluid
+      text-dark">
       <div class="row justify-content-center mb-5">
         <div class="col col-lg-10 col-sm-10 col-xs-10 col-10 text-center">
           <h3 class="welcoming-title">
-            Vector Calculator
+            Vectorize
           </h3>
           <p>
-            A tool created by Jerico Lua and Tomaso Leoni to calculate given
-            vectors' direction of pull
+            Vectorize is a tool created by Jerico Lua and Tomaso Leoni to calculate given
+            vectors' direction of strength
           </p>
         </div>
       </div>
       <div class="row justify-content-md-center">
-        <div class="col-sm-8 col-lg-8 col-xl-8 text-center playground-container m-2 p-3 shadow mrounded">
+        <div class="col-sm-8 col-lg-8 col-xl-8 text-center playground-container
+          playground-container-sm m-2 p-0 shadow mrounded">
           <div class="playground"></div>
           <div class="circle" id="center-circle"></div>
         </div>
         <div
-          class="col-sm-3 col-lg-3 col-xl-3 controls shadow m-2 rounded text-center">
-          <div class="row h-100 d-flex justify-content-md-center align-middle mt-3">
+          class="col-sm-3 col-lg-3 col-xl-3 controls controls-sm shadow m-2
+          rounded text-center">
+          <div class="row h-100 d-flex justify-content-md-center align-middle
+            mt-3">
             <h3 class="col-12">Current overall strength:</h3>
             <div class="w-100"></div>
             <p class="col curr-strength-disp" id="strengthDisplay">0</p>
             <div class="w-100"></div>
             <form class="col">
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="showAllVectors"/>
+                <input type="checkbox" class="form-check-input"
+                  id="showAllVectors" />
                 <label class="form-check-label" for="exampleCheck1">
                   Show all vectors
                 </label>
@@ -57,15 +63,8 @@
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/arrows.js" charset="utf-8"></script>
+    <script src="js/controls.js" charset="utf-8"></script>
   </body>
 </html>
